@@ -4,6 +4,23 @@
 <h1>Welcome to home</h1>
 
 
+{% for todo in Todos %}
+    <div class="card">
+        <h2 class="title">
+            {{todo.title}}
+        </h2>
+        <span class="sub_title">
+            {{todo.sub_title}}
+        </span>
+        <p class="body">
+            {{todo.body}}
+        </p>
+        <span class="date">
+            {{todo.date}}
+        </span>
+    </div>
+{% endfor %}
+
 
 
 {% endblock %}
