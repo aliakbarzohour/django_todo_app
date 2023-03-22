@@ -6,7 +6,7 @@ class Todo(models.Model):
     title = models.CharField(max_length=255)
     sub_title = models.CharField(max_length=100)
     body = models.TextField()
-    date = models.TimeField()
-
+    date = models.DateTimeField()
+        
     def __str__(self):
         return "{} : {}".format(self.title, self.date)

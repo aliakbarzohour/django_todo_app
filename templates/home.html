@@ -8,21 +8,24 @@
 
 {% for todo in Todos %}
 
-<div class="card w-50 w-sm-100">
-    <div class="card-header">
-        {{todo.date}}
-    </div>
+<div class="card text-center w-75">
     <div class="card-body">
         <h5 class="card-title">
             {{todo.title}}
         </h5>
-        <span class="blockquote-footer">{{todo.sub_title}}</span>
-        <p class="card-text py-2">
+        <p class="card-text py-3">
             {{todo.body}}
         </p>
-        <a href="#" class="btn btn-danger px-3 py-1">Delete</a>
+        <div class="d-flex justify-content-center align-items-center w-100">
+            <a href="#" class="py-2 px-4 mx-2 btn btn-success">انجام شد</a>
+            <a href="#" class="py-2 px-4 mx-2 btn btn-danger">حذف</a>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        {{todo.date}}
     </div>
 </div>
+
 {% endfor %}
 
 

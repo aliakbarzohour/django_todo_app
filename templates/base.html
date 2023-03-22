@@ -28,12 +28,15 @@
         font-family: Vazirmatn,'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
     }
+    body{
+        background: #ffbdbd;
+    }
 </style>
 
 <body>
 
-    <div class="container-lg container-sm-fluid d-flex flex-column">
-        <div class="todos w-100 flex-column d-flex justify-content-center align-items-center flex-wrap gap-3" >
+    <div class="container d-flex flex-column">
+        <div class="todos flex-column d-flex justify-content-center align-items-center flex-wrap gap-3" >
             {% block todos %}
             
             {% endblock %}
