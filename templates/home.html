@@ -5,8 +5,8 @@
     لیست کار های امروز
 </h1>
 
-
 {% for todo in Todos %}
+
 
 <div class="card text-center w-75">
     <div class="card-body">
@@ -17,8 +17,8 @@
             {{todo.body}}
         </p>
         <div class="d-flex justify-content-center align-items-center w-100">
-            <a href="#" class="py-2 px-4 mx-2 btn btn-success">انجام شد</a>
-            <a href="#" class="py-2 px-4 mx-2 btn btn-danger">حذف</a>
+            <a href="{% url 'done' todo.id %}" class="py-2 px-4 mx-2 btn btn-success">انجام شد</a>
+            <a href="{% url 'delete' todo.id %}" class="py-2 px-4 mx-2 btn btn-danger">حذف</a>
         </div>
     </div>
     <div class="card-footer text-muted">
