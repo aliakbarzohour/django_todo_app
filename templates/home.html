@@ -1,24 +1,28 @@
 {% extends "base.html" %}
-{% block content %}
+{% block todos %}
 
-<h1>Welcome to home</h1>
+<h1 class="mt-5 mb-4">
+    لیست کار های امروز
+</h1>
 
 
 {% for todo in Todos %}
-    <div class="card">
-        <h2 class="title">
+
+<div class="card w-50 w-sm-100">
+    <div class="card-header">
+        {{todo.date}}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">
             {{todo.title}}
-        </h2>
-        <span class="sub_title">
-            {{todo.sub_title}}
-        </span>
-        <p class="body">
+        </h5>
+        <span class="blockquote-footer">{{todo.sub_title}}</span>
+        <p class="card-text py-2">
             {{todo.body}}
         </p>
-        <span class="date">
-            {{todo.date}}
-        </span>
+        <a href="#" class="btn btn-danger px-3 py-1">Delete</a>
     </div>
+</div>
 {% endfor %}
 
 
