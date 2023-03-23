@@ -21,6 +21,8 @@
     <!-- Vazirfont -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet"
         type="text/css" />
+    <!-- Bootstrap icon -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <style>
     * {
@@ -31,11 +33,13 @@
 
 </style>
 
-<body>
+<body class='bg-light'>
+
+    {% include 'navbar.html' %}
     {% include 'messages.html' %}
 
     <div class="container d-flex flex-column">
-        <div class="todos flex-column d-flex justify-content-center align-items-center flex-wrap gap-3" >
+        <div class="todos flex-column d-flex justify-content-center align-items-center flex-wrap gap-3 mb-5" >
             {% block todos %}
             
             {% endblock %}
