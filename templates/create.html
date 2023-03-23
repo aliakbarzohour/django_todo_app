@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block todos %}
+    <h2 class="mt-5 mb-3">ساختن لیست کار</h2>
+    <div class="container">
+    <form class="d-flex flex-column justify-content-center gap-3 card p-3 ">
+        {{form}}
+        <input type="submit" value="ساختن" class="p-3 btn btn-success">
+    </form>
+    </div>
+{% endblock  %}
