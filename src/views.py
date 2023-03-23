@@ -2,6 +2,7 @@ import datetime
 from django.shortcuts import render, redirect
 from .models import Todo
 from django.contrib import messages
+from .forms import CreateTodo
 
 # Create your views here.
 
@@ -20,3 +21,7 @@ def Done(request, todo_id):
     messages.success(request, ' :) تبریک . این کار هم انجام شد', 'success')
     return redirect('home')
     
+
+def Create(request):
+    form = CreateTodo()
+    return render(request, 'create.html', {'form':form})
