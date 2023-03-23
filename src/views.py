@@ -23,5 +23,16 @@ def Done(request, todo_id):
     
 
 def Create(request):
-    form = CreateTodo()
+    if request.method == "POST":
+        form = CreateTodo(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            Todo.objects.create(title=cd['title'], sub_title=cd['sub_title'], body=cd['body'], date=cd['date'])
+            if cd['date'] == '':
+                datetime.now()
+            messages.success(request, 'بخش جدید به لیست کار ها اضافه شد', 'success')
+            return redirect('home')
+    else:
+        form = CreateTodo()
+        
     return render(request, 'create.html', {'form':form})
