@@ -2,7 +2,7 @@ import datetime
 from django.shortcuts import render, redirect
 from .models import Todo
 from django.contrib import messages
-from .forms import CreateTodo
+from .forms import CreateTodo, EditTodo
 
 # Create your views here.
 
@@ -13,12 +13,12 @@ def Home(request):
 
 def Delete(request, todo_id):
     Todo.objects.get(id=todo_id).delete()
-    messages.error(request, ':( این بخش از کار ها حذف شد', 'danger')
+    messages.error(request, 'این بخش از کار ها حذف شد  :( ', 'danger')
     return redirect('home')
 
 def Done(request, todo_id):
     Todo.objects.get(id=todo_id).delete()
-    messages.success(request, ' :) تبریک . این کار هم انجام شد', 'success')
+    messages.success(request, ' تبریک . این کار هم انجام شد  :) ', 'success')
     return redirect('home')
     
 
@@ -36,3 +36,17 @@ def Create(request):
         form = CreateTodo()
         
     return render(request, 'create.html', {'form':form})
+
+
+
+def Edit(request, todo_id):
+    todo = Todo.objects.get(id=todo_id)
+    if request.method == "POST":
+        form = EditTodo(request.POST, instance=todo)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'ویرایش با موفقیت انجام شد', 'success')
+            return redirect('home')
+    else:
+        form = EditTodo(instance=todo)
+        return render(request, 'edit.html', {'form':form})
