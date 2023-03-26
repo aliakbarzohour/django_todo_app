@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% block todos %}
 
+
+
+{% if request.user.is_authenticated %}
+
 <h1 class="mt-5 mb-4">
     لیست کار های امروز
 </h1>
 
 {% for todo in Todos %}
-
 
 <div class="card text-center bg-light border-dark" style="width: 95% !important;">
     <div class="card-body">
@@ -38,6 +41,21 @@
 
 {% endfor %}
 
+{% else %}
+<div class="alert alert-success mt-5" role="alert">
+    <h4 class="alert-heading">خوش آمدید . </h4>
+    <p>
+        شما با استفاده از این اپلیکیشن میتونید کارهای روزانه خودتون رو ثبت کنید و در آخر روز چک کنید که اونا رو انجام
+        دادید یا نه ؟
+        <br>
+        امیدوارم که کاراتون رو انجام داده باشین
+    </p>
+    <hr>
+    <p class="mb-0">
+        برای استفاده و اضافه کردن لیست کار ها ثبت نام کنید یا وارد شوید
+    </p>
+</div>
 
+{% endif %}
 
 {% endblock %}
