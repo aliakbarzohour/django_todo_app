@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block todos %}
+<h2 class="mt-5 mb-3">ثبت نام</h2>
+<div class="container">
+    <form method="post" action="" class="d-flex flex-column justify-content-center gap-3 card p-3 ">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="ثبت نام" class="p-3 btn btn-success">
+    </form>
+</div>
+{% endblock %}
