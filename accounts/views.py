@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .forms import UserRegistrationForm, UserLoginForm
@@ -15,7 +15,7 @@ def user_register(request):
                     cd = form.cleaned_data
                     User.objects.create_user(cd['username'], cd['email'], cd['password'])
                     messages.success(request, 'تبریک . شما با موفقیت ثبت نام شدید', 'success')
-                    return redirect('home')
+                    return redirect('login ')
 
 
     else:
@@ -36,3 +36,9 @@ def user_login(request):
       else:
             form = UserLoginForm
             return render(request, 'login.html', {'form':form}) 
+      
+
+def user_logout(request):
+    logout(request)
+    messages.success(request, 'شما از حساب کاربری خود خارج شدید', 'warning')
+    return redirect('home')
