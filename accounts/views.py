@@ -15,7 +15,7 @@ def user_register(request):
                     cd = form.cleaned_data
                     User.objects.create_user(cd['username'], cd['email'], cd['password'])
                     messages.success(request, 'تبریک . شما با موفقیت ثبت نام شدید', 'success')
-                    return redirect('login ')
+                    return redirect('login')
 
 
     else:
