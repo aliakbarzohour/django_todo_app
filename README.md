@@ -26,7 +26,7 @@ To run the project using Docker, execute the following commands:
 sudo docker run -p 8000:8000 -it djangosetup
 ```
 
-This will start the Django project and make it accessible at `http://localhost:8000`.
+This will start the Django project and make it accessible at `http://127.0.0.1:8000`.
 
 Please note that you may need to adjust the port number (`8000`) in the above command if it conflicts with any other service running on your machine.
 
